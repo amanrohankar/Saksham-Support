@@ -86,14 +86,26 @@
             position: sticky; top: 0; z-index: 1000;
         }
 
-        .logo-box { display: flex; align-items: center; gap: 15px; }
-        .logo-img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--text-dark); } 
+   .logo-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  /* Ab size ko 50px se badhakar 100px kar diya hai */
+  width: 80px;
+  height:80px;
+  border-radius: 50%;
+}
+
+
         /* Stable logo - No animation */
         
         .nav-items { display: flex; gap: 30px; align-items: center; }
         .nav-items a { text-decoration: none; color: var(--text-dark); font-weight: 600; position: relative; }
         .nav-items a::after { content:''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background: var(--text-dark); transition: 0.3s; }
-        .nav-items a:hover::after { width: 100%; }
+        .nav-items a:hover::after { width: 105%; }
 
         /* --- 5. HERO SECTION WITH SWIPER --- */
         .hero {
@@ -133,106 +145,137 @@
         .swiper-card h3 { font-size: 2rem; color: var(--deep-green); margin-bottom: 10px; }
         .swiper-card i { font-size: 4rem; color: var(--nature-green); margin-bottom: 20px; }
         
-        /* --- 6. SHOPPING & CONTENT (Curved & Modern) --- */
-        .container { padding: 80px 8%; position: relative; z-index: 10; }
-        
-        .glass-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        /* --- 7. NEWSLETTER (Compact) --- */
+        .newsletter {
+            margin: 60px auto 0 auto;
+            max-width: 800px; /* Width limit kiya */
+            background: var(--nature-green);
+            border-radius: 30px; /* Fully rounded */
+            padding: 40px;
+            text-align: center; color: white;
+            position: relative; z-index: 10;
+            box-shadow: 0 15px 40px rgba(76, 175, 80, 0.3);
+        }
+        .newsletter h2 { font-size: 1.8rem; margin-bottom: 10px; }
+        .newsletter p { font-size: 1rem; margin-bottom: 20px; opacity: 0.9; }
+        .newsletter input {
+            padding: 12px 25px; border-radius: 50px; border: none; width: 60%; outline: none;
+        }
+        .newsletter button {
+            padding: 12px 30px; border-radius: 50px; border: none; background: var(--deep-green); color: white; cursor: pointer; font-weight: bold; margin-left: 10px;
+        }
+
+        /* --- FOOTER (Restructured) --- */
+        .footer-wrapper {
+            background: var(--deep-green); 
+            margin-top: 80px; 
+            padding-bottom: 30px;
+            position: relative;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .wave-divider { position: absolute; top: -100px; left: 0; width: 100%; line-height: 0; pointer-events: none; }
+        .wave-divider svg { width: 100%; height: 100px; display: block; fill: var(--deep-green); }
+
+        footer {
+            padding: 40px 8% 20px 8%;
+            display: flex;
+            flex-direction: column;
             gap: 40px;
         }
 
-        .glass-card {
-            background: rgba(255,255,255,0.4);
-            backdrop-filter: blur(10px);
-            border: 1px solid white;
-            border-radius: 35px; /* Aesthetic Curve */
-            padding: 25px;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy */
-            position: relative; overflow: hidden;
+        /* Top Section: Branding + Links Side-by-Side */
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+             background: var(--deep-green);
+            color: var(--light-bg);
+            gap: 40px;
         }
 
-        .glass-card:hover { transform: translateY(-15px) scale(1.02); background: rgba(255,255,255,0.7); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-
-        .card-img-placeholder {
-            height: 180px; background: rgba(10, 51, 42, 0.05);
-            border-radius: 25px; margin-bottom: 20px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 3rem; color: var(--nature-green);
+        /* Branding Section */
+        .footer-brand {
+            flex: 1;
+            min-width: 300px;
+        }
+        .footer-brand-box {
+            display: flex; align-items: center; gap: 15px; margin-bottom: 20px;
+        }
+        .footer-logo-big {
+            height: 60px; width: 60px; border-radius: 50%; border: 2px solid var(--light-green-text); object-fit: cover;
+        }
+        .footer-brand-text {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--light-green-text); /* Requested Light Green Color */
+            text-transform: capitalize;
         }
 
-        .section-head { font-size: 3rem; margin-bottom: 50px; color: var(--deep-green); font-weight: 200; }
-        .section-head b { font-weight: 800; }
+        .social-icons {
+            display: flex; gap: 15px; margin-top: 20px;
+        }
+        .social-icons i {
+            font-size: 1.5rem; cursor: pointer; transition: 0.3s; color: white;
+        }
+        .social-icons i:hover { color: var(--accent); transform: translateY(-3px); }
 
-        /* --- 7. NEWSLETTER (Curved Top) --- */
-        .newsletter {
-            margin-top: 100px;
-            background: var(--nature-green);
-            border-radius: 50px 50px 0 0; /* Only top curves */
-            padding: 60px 8%;
-            text-align: center; color: white;
-            position: relative; z-index: 10;
-        }
-        .newsletter input {
-            padding: 15px 30px; border-radius: 50px; border: none; width: 300px; margin-top: 20px; outline: none;
-        }
-        .newsletter button {
-            padding: 15px 40px; border-radius: 50px; border: none; background: var(--deep-green); color: white; cursor: pointer; font-weight: bold; margin-left: 10px;
-        }
 
-        /* --- 8. BIG FOOTER (Dark Wave) --- */
-        .footer-wave-container {
-            position: relative;
-            background: var(--deep-green);
-            margin-top: -2px; /* Connect to newsletter */
+        /* Links Side-by-Side Container */
+        .footer-links-container {
+            display: flex;
+            gap: 60px;
         }
         
-        /* The Wave SVG */
-        .wave-svg {
-            position: absolute; top: -100px; left: 0; width: 100%; height: 100px;
-            fill: var(--nature-green); /* Matches newsletter bg */
-            pointer-events: none;
+        .footer-col h4 {
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
         }
 
-        footer {
-            background: var(--deep-green);
-            color: var(--light-bg);
-            padding: 50px 8% 80px;
-            display: flex; flex-wrap: wrap; justify-content: space-between; gap: 50px;
+        .footer-links { list-style: none; }
+        .footer-links li {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .footer-links li:hover {
+            color: var(--light-green-text);
+            transform: translateX(5px);
         }
 
-        .footer-big-text { flex: 1 1 400px; }
-        .footer-big-text h2 { font-size: 4rem; line-height: 1; margin-bottom: 20px; color: var(--nature-green); }
-        .footer-big-text p { font-size: 1.2rem; opacity: 0.8; max-width: 400px; }
-
-        .footer-links h4 { font-size: 1.5rem; margin-bottom: 20px; color: var(--accent); }
-        .footer-links ul { list-style: none; }
-        .footer-links li { margin-bottom: 15px; font-size: 1.2rem; cursor: pointer; transition: 0.3s; }
-        .footer-links li:hover { color: var(--accent); transform: translateX(10px); }
-
-        /* --- 9. FLOATING BUTTONS --- */
-        .fab-container { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 1000; }
-        .fab {
-            width: 60px; height: 60px; border-radius: 50%;
-            background: var(--deep-green); color: white;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.4rem; box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            cursor: pointer; transition: 0.3s;
+        /* Bottom Section Text */
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            line-height: 1.6;
         }
-        .fab:hover { transform: scale(1.1); background: var(--nature-green); }
-        .call-fab { background: #d32f2f; animation: pulse 2s infinite; }
+        .highlight-text {
+            color: var(--light-green-text);
+            font-weight: 600;
+        }
 
-        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(211, 47, 47, 0); } 100% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0); } }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            .hero { flex-direction: column; text-align: center; padding-top: 100px; }
-            .hero-text { max-width: 100%; margin-bottom: 40px; }
-            .hero-swiper { width: 100%; }
-            .side-wave { display: none; } /* Hide side waves on mobile for space */
-            .newsletter { border-radius: 30px 30px 0 0; }
+            nav { flex-direction: column; height: auto; padding: 20px; border-radius: 20px; width: 95%; }
+            .nav-left-group { flex-direction: column; gap: 10px; width: 100%; }
+            .nav-items { flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 15px; }
+            .hero h1 { font-size: 2.2rem; }
+            .footer-top { flex-direction: column; }
+            .footer-links-container { flex-wrap: wrap; gap: 30px; width: 100%; }
+            .newsletter { width: 90%; }
+            .nav-search input { width: 100%; }
         }
-    </style>
-</head>
+
+    </style></head>
 <body>
 
     <div class="video-container">
@@ -253,7 +296,7 @@
 
     <nav>
         <div class="logo-box">
-            <img src="shinchan.png" alt="Logo" class="logo-img">
+            <img src="LOGO.png" alt="Logo" class="logo-img">
             <h3>Saksham Support</h3>
         </div>
         <div class="nav-items">
@@ -261,6 +304,7 @@
             <a href="#">Store</a>
             <a href="#">Schemes</a>
             <a href="#">About</a>
+             <a href="#">Account</a>
         </div>
     </nav>
 
@@ -270,70 +314,11 @@
             <p>Experience the freedom of movement with our advanced assistive technology and government support network.</p>
         </div>
 
-        <div class="hero-swiper">
-            <div class="swiper-card">
-                <i class="fas fa-wheelchair"></i>
-                <h3>Equipment</h3>
-                <p>Swipe to browse modern gear.</p>
-            </div>
-            <div class="swiper-card">
-                <i class="fas fa-hands-helping"></i>
-                <h3>Community</h3>
-                <p>Join 50,000+ members today.</p>
-            </div>
-            <div class="swiper-card">
-                <i class="fas fa-university"></i>
-                <h3>Schemes</h3>
-                <p>Get government benefits easily.</p>
-            </div>
-        </div>
     </header>
 
-    <div class="container">
-        <h2 class="section-head">Curated <b>Essentials</b></h2>
+   
         
-        <div class="glass-grid">
-            <div class="glass-card">
-                <div class="card-img-placeholder"><i class="fas fa-robot"></i></div>
-                <h3>Bionic Arm V2</h3>
-                <p>Advanced grip control with neural sensors.</p>
-                <h4 style="color: var(--nature-green); margin-top: 10px;">₹45,000</h4>
-            </div>
-
-            <div class="glass-card">
-                <div class="card-img-placeholder"><i class="fas fa-eye"></i></div>
-                <h3>Vision Glasses</h3>
-                <p>Read text aloud using AI camera.</p>
-                <h4 style="color: var(--nature-green); margin-top: 10px;">₹12,000</h4>
-            </div>
-
-            <div class="glass-card" style="border-left: 5px solid var(--accent);">
-                <div class="card-img-placeholder"><i class="fas fa-user-nurse"></i></div>
-                <h3>Home Therapy</h3>
-                <p>Book a physiotherapist visit.</p>
-                <button style="margin-top:15px; padding:8px 20px; border-radius:20px; border:none; background:var(--deep-green); color:white;">Book Now</button>
-            </div>
-        </div>
-
-        <br><br><br>
-
-        <h2 class="section-head">Government <b>Support</b></h2>
-        <div class="glass-grid">
-            <div class="glass-card">
-                <h3><i class="fas fa-bus"></i> Travel Pass</h3>
-                <p>Apply for free Bus & Train passes.</p>
-            </div>
-            <div class="glass-card">
-                <h3><i class="fas fa-file-signature"></i> Exam Scribe</h3>
-                <p>Request a writer for exams.</p>
-            </div>
-            <div class="glass-card">
-                <h3><i class="fas fa-briefcase"></i> Job Quota</h3>
-                <p>View reserved PwD vacancies.</p>
-            </div>
-        </div>
-    </div>
-
+   <!-- COMPACT NEWSLETTER -->
     <div class="newsletter">
         <h2>Stay Connected</h2>
         <p>Get the latest updates on disability rights and technology.</p>
@@ -341,43 +326,73 @@
             <input type="email" placeholder="Enter your email...">
             <button>Subscribe</button>
         </form>
-    </div>
+    </div><br><br><br>
 
-    <div class="footer-wave-container">
+    <!-- RESTRUCTURED FOOTER -->
+    <div class="footer-wrapper">
+    
+        <div class="wave-divider">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+            </svg>
+        </div>
+
         <footer>
-            <div class="footer-big-text">
-                <h2>Saksham.</h2>
-                <p>We are dedicated to creating a barrier-free world. Every product, every scheme, every step is for you.</p>
-                <br>
-                <p style="font-size: 0.9rem;">© 2025 Saksham Support Foundation.</p>
+            <div class="footer-top">
+                <!-- Brand & Socials -->
+                <div class="footer-brand">
+                    <div class="footer-brand-box">
+                        <img src="https://via.placeholder.com/70/69f0ae/0a332a?text=S" alt="Logo" class="footer-logo-big" onerror="this.src='https://via.placeholder.com/70'">
+                        <h2 class="footer-brand-text">Saksham Support</h2>
+                    </div>
+                    
+                    <!-- Social Icons (Added GitHub & Facebook) -->
+                    <div class="social-icons">
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-youtube"></i>
+                        <i class="fab fa-facebook"></i> <!-- Added -->
+                        <i class="fab fa-github"></i>   <!-- Added -->
+                    </div>
+                </div>
+
+                <!-- Links Side by Side -->
+                <div class="footer-links-container">
+                    <div class="footer-col">
+                        <h4>Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i> Privacy Policy</li>
+                            <li><i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i> Terms & Conditions</li>
+                            <li><i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i> Rights & Reserves</li>
+                            <li><i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i> Accessibility Statement</li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Support</h4>
+                        <ul class="footer-links">
+                            <li><i class="fas fa-user-circle"></i> My Account</li>
+                            <li><i class="fas fa-box-open"></i> Track Order</li>
+                            <li><i class="fas fa-phone-alt"></i> Helpline: 1800-123-456</li>
+                            <li><i class="fas fa-envelope"></i> help@saksham.org</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
-            <div class="footer-links">
-                <h4>Explore</h4>
-                <ul>
-                    <li>Shop Equipment</li>
-                    <li>Medical Camps</li>
-                    <li>Success Stories</li>
-                    <li>Donations</li>
-                </ul>
-            </div>
-
-            <div class="footer-links">
-                <h4>Legal</h4>
-                <ul>
-                    <li>Privacy Policy</li>
-                    <li>Terms of Use</li>
-                    <li>Accessibility Statement</li>
-                    <li>Right to Information</li>
-                </ul>
+            <!-- Bottom Content (Moved Here) -->
+            <div class="footer-bottom">
+                <p>Empowering lives through technology and support since 2025.</p>
+                <p>Designed with ❤️ for the community.</p>
+                <p class="highlight-text">ISO 9001:2015 Certified Organization.</p>
             </div>
         </footer>
-    </div>
+    </div> 
 
-    <div class="fab-container">
+    <!-- <div class="fab-container">
         <div class="fab setting-fab"><i class="fas fa-cog"></i></div>
         <div class="fab call-fab"><i class="fas fa-phone"></i></div>
-    </div>
+    </div> -->
 
 </body>
 </html>
